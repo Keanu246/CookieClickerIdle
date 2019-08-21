@@ -1,3 +1,3 @@
-# Cookie Clicker Idle
+# Special Idle
 
-An game that is good.
+An game that is good. With buildings, upgrades and clicks. 
