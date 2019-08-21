@@ -16,6 +16,7 @@ function Building() {
 	this.Name = "Lemonade Stand";
 	this.Cost = 10;
 	this.PerSec = 1;
+	
 	this.Name = "Ice Lolly Stand";
 	this.Cost = 100;
 	this.PerSec = 5;	
@@ -67,7 +68,7 @@ function Build(id) {
 function Build(id) {
 	if (game.money >= buildings[id].Cost) { //Check if the player has enough money, then subtract it and add a new building if they do
 		game.money -= buildings[id].Cost;
-		game.buildings[id] = game.buildings[id] + 1;
+		game.buildings[id] = game.buildings[id] + 2;
 		document.getElementById("money").innerHTML = game.money;
 		document.getElementById("Building2Qty").innerHTML = game.buildings[id];
 	}
