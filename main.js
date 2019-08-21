@@ -9,7 +9,7 @@ class Clicker
 	constructor()
 	{
 		this.level = 1
-		this.price = 20;
+		this.price = 10;
 
 		this.level_display = document.getElementById("clicker_level");
 		this.price_display = document.getElementById("clicker_price");
@@ -27,7 +27,7 @@ class Clicker
 
 	get_production_value()
 	{
-		return Math.floor(1 + (0.05 * altogether_productivity * (this.level - 1)) + (this.level - 1));
+		return Math.floor(1 + (0.1 * altogether_productivity * (this.level - 1)) + (this.level - 1));
 	}
 
 	improve()
@@ -36,7 +36,7 @@ class Clicker
 		{
 			cookies -= this.price;
 			this.level += 1;
-			this.price *= 2;
+			this.price *= 1.5;
 			this.renew_display();
 		}
 		else
@@ -154,27 +154,57 @@ function renew_cookies()
 	cookies_display.innerHTML = cookies;
 	cookies_produced_display.innerHTML = cookies_produced;
     
-	if(this.cookies_produced >= 200 && bakery_enabled == 0) 
+	if(this.cookies_produced >= 10 && grandma_enabled == 0) 
 	{
-		bakery.set_visible();
-		bakery_enabled = 1;
+	        grandma.set_visible();
+		grandma_enabled = 1;
         
 	}
-	if(this.cookies_produced >= 2000 && factory_enabled == 0)
+	if(this.cookies_produced >= 80 && farm_enabled == 0)
 	{
-		factory.set_visible(); 
+		farm.set_visible(); 
+		farm_enabled = 1;
+	}
+	if(this.cookies_produced >= 600 && factory_enabled == 0)
+	{
+		factory.set_visible();
 		factory_enabled = 1;
 	}
-	if(this.cookies_produced >= 20000 && cookie_tesla_enabled == 0)
-	{
-		cookie_tesla.set_visible();
-		cookie_tesla_enabled = 1;
-	}
 
-	if(this.cookies_produced >= 200000 && cookie_gigant_enabled == 0) 
+	if(this.cookies_produced >= 5000 && mine_enabled == 0) 
 	{
-		cookie_gigant.set_visible(); 
-		cookie_gigant_enabled = 1;
+		mine.set_visible(); 
+		mine_enabled = 1;
+	}
+	
+	if(this.cookies_produced >= 40000 && shipment_enabled == 0) 
+	{
+		shipment.set_visible(); 
+		shipment_enabled = 1;
+	}
+	
+	if(this.cookies_produced >= 800000 && alchemy_lab_enabled == 0) 
+	{
+		alchemy_lab.set_visible(); 
+		alchemy_lab_enabled = 1;
+	}
+	
+	if(this.cookies_produced >= 16000000 && portal_enabled == 0) 
+	{
+		portal.set_visible(); 
+		portal_enabled = 1;
+	}
+	
+	if(this.cookies_produced >= 480000000 && time_machine_enabled == 0) 
+	{
+		time_machine.set_visible(); 
+		time_machine_enabled = 1;
+	}
+	
+	if(this.cookies_produced >= 7200000000 && antimatter_condenser_enabled == 0) 
+	{
+		antimatter_condenser.set_visible(); 
+		antimatter_condenser_enabled = 1;
 	}
 }
 
@@ -189,17 +219,27 @@ var cookies_produced_display = document.getElementById("cookies_produced");
 
 var buildings = document.getElementById("buildings");
 
-bakery_enabled = 0;
+grandma_enabled = 0;
+farm_enabled = 0;
 factory_enabled = 0;
-cookie_tesla_enabled = 0;
-cookie_gigant_enabled = 0;
+mine_enabled = 0;
+shipment_enabled = 0;
+alchemy_lab_enabled = 0;
+portal_enabled = 0;
+time_machine_enabled = 0;
+antimatter_condenser_enabled = 0;
 
 clicker = new Clicker();
-baker = new Building("Baker", 1, 20);
-baker.set_visible();
-bakery = new Building("Bakery", 10, 200);
-factory = new Building("Factory", 100, 2000);
-cookie_tesla = new Building("Cookie Tesla", 1000, 20000);
-cookie_gigant = new Building("Cookie Gigant", 10000, 200000);
+cursor = new Building("Cursor", 1, 15);
+cursor.set_visible();
+grandma = new Building("Grandma", 10, 100);
+farm = new Building("Farm", 80, 1500);
+factory = new Building("Factory", 600, 25000);
+mine = new Building("Mine", 5000, 400000);
+shipment = new Building("Shipment", 40000, 5000000);
+alchemy_lab = new Building("Alchemy Lab", 800000, 75000000);
+portal = new Building("Portal", 16000000, 1000000000);
+time_machine = new Building("Time Machine", 480000000, 30000000000);
+antimatter_condenser = new Building("Antimatter Condenser", 7200000000, 500000000000);
 
 setInterval(renew_cookies, 500);
