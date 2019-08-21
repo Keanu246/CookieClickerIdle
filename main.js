@@ -16,7 +16,7 @@ function Building() {
 	this.Name = "Lemonade Stand";
 	this.Cost = 10;
 	this.PerSec = 1;
-	this.Name = "Ice Lolly Shop";
+	this.Name = "Ice Lolly Stand";
 	this.Cost = 100;
 	this.PerSec = 5;	
 }
@@ -24,7 +24,7 @@ function Building() {
 //The function to initialise all buildings
 function InitBuildings() {
 	LoadBuilding("Lemonade Stand",10,1);
-	LoadBuilding("Ice Lolly Shop",100,5);
+	LoadBuilding("Ice Lolly Stand",100,5);
 }
 
 //The function to automatically load a building into the buildings array
