@@ -8,8 +8,18 @@
 		Production: <span id="clicker_productivity"></span><br>
 		Improvement Price: <span id="clicker_price"></span><br>
 		<button onclick="clicker.improve();">Improve</button><br><br>
+		
+		<div class="menu">
+                 <div class="tab">
+                  <button class="tablinks" onclick="switchTab(event, 'Cookie')" id="defaultOpen">Cookie</button>
+                  <button class="tablinks" onclick="switchTab(event, 'Buildings')">Buildings</button>
+                  <button class="tablinks" onclick="switchTab(event, 'Upgrades')">Upgrades</button>
+                  <button class="tablinks" onclick="switchTab(event, 'Settings')">Settings</button>
+                </div>
 
 		<hr><br>
+		<div id="Buildings" class="tabcontent">
+		
 		<span id="buildings"></span>
 
 		<script src="main.js"></script>
