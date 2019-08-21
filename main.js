@@ -16,11 +16,15 @@ function Building() {
 	this.Name = "Lemonade Stand";
 	this.Cost = 10;
 	this.PerSec = 1;
+	this.Name = "Ice Lolly Shop";
+	this.Cost = 100;
+	this.PerSec = 5;	
 }
 
 //The function to initialise all buildings
 function InitBuildings() {
 	LoadBuilding("Lemonade Stand",10,1);
+	LoadBuilding("Ice Lolly Shop",100,5);
 }
 
 //The function to automatically load a building into the buildings array
@@ -56,6 +60,16 @@ function Build(id) {
 		game.buildings[id] = game.buildings[id] + 1;
 		document.getElementById("money").innerHTML = game.money;
 		document.getElementById("Building1Qty").innerHTML = game.buildings[id];
+	}
+}
+
+//The function to buy a ice lolly shop
+function Build(id) {
+	if (game.money >= buildings[id].Cost) { //Check if the player has enough money, then subtract it and add a new building if they do
+		game.money -= buildings[id].Cost;
+		game.buildings[id] = game.buildings[id] + 1;
+		document.getElementById("money").innerHTML = game.money;
+		document.getElementById("Building2Qty").innerHTML = game.buildings[id];
 	}
 }
 
